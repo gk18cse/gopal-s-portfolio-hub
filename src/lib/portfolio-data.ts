@@ -50,8 +50,9 @@ export const strengths = [
 ];
 
 import {
-  SiHtml5, SiCss3, SiJavascript, SiPython, SiGithub, SiFigma, SiCanva,
+  SiHtml5, SiCss, SiJavascript, SiPython, SiGithub, SiFigma, SiCanva,
 } from "react-icons/si";
+const SiCss3 = SiCss;
 import { VscVscode } from "react-icons/vsc";
 
 export const technicalSkills = [
