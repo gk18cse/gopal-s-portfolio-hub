@@ -7,10 +7,14 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+
+const siteTitle = "Gopalakrishnan A.P | Portfolio";
+const siteDescription =
+  "Portfolio of Gopalakrishnan A.P, a Computer Science Engineering student, frontend developer, and AI enthusiast.";
+const siteAuthor = "Gopalakrishnan A.P";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +41,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -77,18 +78,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "A modern, responsive portfolio website showcasing a Computer Science Engineering student's education, skills, experience, and projects." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "A modern, responsive portfolio website showcasing a Computer Science Engineering student's education, skills, experience, and projects." },
+      { title: siteTitle },
+      { name: "description", content: siteDescription },
+      { name: "author", content: siteAuthor },
+      { property: "og:title", content: siteTitle },
+      { property: "og:description", content: siteDescription },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "A modern, responsive portfolio website showcasing a Computer Science Engineering student's education, skills, experience, and projects." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5f7f1434-4097-48c9-b64e-af6c5a4a2e8d/id-preview-d4ed225a--670b52b9-ce4b-4f8f-9f14-1e2d32bcc2f5.lovable.app-1780209925096.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5f7f1434-4097-48c9-b64e-af6c5a4a2e8d/id-preview-d4ed225a--670b52b9-ce4b-4f8f-9f14-1e2d32bcc2f5.lovable.app-1780209925096.png" },
+      { name: "twitter:title", content: siteTitle },
+      { name: "twitter:description", content: siteDescription },
     ],
     links: [
       {
